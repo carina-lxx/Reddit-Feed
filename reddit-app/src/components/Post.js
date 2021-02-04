@@ -1,9 +1,13 @@
 import React from 'react';
 
-const Post = ({post}) => (
+const Post = ({post, avatar}) => (
     <li>
-        <span> post.name</span>
-        <span> post.content</span>
+        <div> Name: {post.name}</div>
+        <div> Title: {post.title}</div>
+        <div> Avatar: {avatar}</div>
+        <div> Score: {post.score}</div>
+        <div> Time: {post.time}</div>
+        <div> Url: {post.url}</div>
     </li>
 )
 

@@ -14,13 +14,14 @@ class Form extends Component {
 
     handleChange(e) {
         this.setState({
-            searchTerm: e.target.value,
+            redditName: e.target.value,
         });
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        alert(`searched a subreddit`)
+        this.props.getSubredditPost(this.state.redditName);
+        this.props.getAvatars(this.state.redditName)
     }
 
     render() { 
