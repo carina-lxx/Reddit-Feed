@@ -14,14 +14,13 @@ app.get('/', (req, res) => {
   })
 
 
-app.get('/posts', (req, res) => {
-    const query = req.body;
+app.get('/posts/:title', (req, res) => {
+    const {title} = req.params
     axios
-        .get(`https://www.reddit.com/r/denver.json`)
+        .get(`https://www.reddit.com/r/${title}.json`)
         .then(response => {
             let data = response.data.data.children[0].data;
             const { subreddit, title, thumbnail, score, created, url } = data;
-            console.log(subreddit, title, thumbnail, score, created, url)
             res.status(200).send(
                 {
                     name: subreddit,
@@ -35,9 +34,26 @@ app.get('/posts', (req, res) => {
         })
         .catch(err => {
             res.status(400).send(err)
-            console.log('err at api: ', err)
+            // console.log('err at api: ', err)
         })
 });
 
+app.get('/avatars/:title', (req, res) => {
+    const {title} = req.params
+    axios
+        .get(`https://www.reddit.com/r/${title}/about.json`)
+        .then(response => {
+            let avatar = response.data.data.icon_img;
+            res.status(200).send(
+                {
+                    avatar: avatar,
+                }  
+            )
+        })
+        .catch(err => {
+            res.status(400).send(err)
+            // console.log('err at api: ', err)
+        })
+});
 
 app.listen(process.env.PORT || 8080);
