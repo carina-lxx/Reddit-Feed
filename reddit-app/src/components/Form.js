@@ -6,7 +6,6 @@ class Form extends Component {
         this.state = { 
             redditName: '',
         }
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
