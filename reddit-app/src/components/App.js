@@ -8,8 +8,8 @@ class App extends Component {
     super(props);
 
     if (localStorage.getItem('lists')) {
-      const rawLS = localStorage.getItem('lists');
-      const subscribes = JSON.parse(rawLS);
+      let rawLS = localStorage.getItem('lists');
+      let subscribes = JSON.parse(rawLS);
     
       // const parsedPic = JSON.parse(rawPic);
       this.state = {
@@ -32,28 +32,32 @@ class App extends Component {
 
   componentDidMount() {
 
-
   }
 
   getSubredditPost(subredditTitle) {
-    fetch(`/posts/${subredditTitle}`)
+    fetch(`/users/1/posts/${subredditTitle}`)
       .then(res => res.json())
       .then(
         (result) => {
-          const rawLS = localStorage.getItem('lists');
-          const subscribes = JSON.parse(rawLS);
-          // const { subscribes } = this.state;
-          if (subscribes.length === 5) {
-            subscribes.splice(0, 1);
+          // const rawLS = localStorage.getItem('lists');
+          // const subscribes = JSON.parse(rawLS);
+          let { subscribes } = this.state;
+          
+          if (subscribes.length >= 5) {
+            subscribes = subscribes.slice(subscribes.length - 4, subscribes.length)
+            subscribes.push(result)
+            // subscribes = subscribes.slice(0, 4);
             this.setState({
-              subscribes: [...subscribes, result],
+              subscribes: subscribes,
             })
+            console.log('state: ', this.state.subscribes)
+            console.log('parse:', subscribes)
             localStorage.setItem('lists', JSON.stringify(this.state.subscribes));
             localStorage.setItem('avatars', JSON.stringify(this.state.avatars));
           
           } else {
             this.setState({
-              subscribes: [...this.state.subscribes, result],
+              subscribes: [...subscribes, result],
             });
             localStorage.setItem('lists', JSON.stringify(this.state.subscribes));
             localStorage.setItem('avatars', JSON.stringify(this.state.avatars));
@@ -70,7 +74,7 @@ class App extends Component {
       .then(res => res.json())
       .then(
         (result) => {
-          const { avatars } = this.state;
+          let { avatars } = this.state;
           avatars[subredditTitle] = result.avatar;
           this.setState({
             avatars: avatars

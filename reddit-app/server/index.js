@@ -8,14 +8,17 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
+let user = {
+    id: 1,
+    tweets: []
+}
 app.get('/', (req, res) => {
     res.send('Hello World!')
   })
 
 
-app.get('/posts/:title', (req, res) => {
-    const {title} = req.params
+app.get('/users/:id/posts/:title', (req, res) => {
+    const {title, id} = req.params
     axios
         .get(`https://www.reddit.com/r/${title}.json`)
         .then(response => {

@@ -5,10 +5,10 @@ const List = ({ subscribes, avatars }) => (
 
     <ul className='list'>
         {
-            subscribes.sort(function (a, b) { return b.score - a.score }).map(post => (
+            subscribes.sort(function (a, b) { return b.score - a.score }).map((post, index) => (
                 <
                     Post 
-                    key={post.name + post.time}
+                    key={index+post.title}
                     post={post}
                     avatar={avatars[post.name]}
                 />
