@@ -1,0 +1,125 @@
+.wrapper {
+    padding: 5% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5%;
+}
+
+.header {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height:120px;
+    
+}
+
+.inputbox {
+    font-size: 13pt;
+    width: 45%;
+    min-width: 300px;
+    border-radius: 0px 8px 8px 0px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.box {
+    height: 38px;
+    width: 70%;
+    border: none;
+    background-color: rgba(245,245,245);
+}
+
+.label {
+    padding: 8px 0px;
+    width: 24px;
+    font-size: 15pt;
+    text-align: center;
+    font-family: Arial;
+    /* border: 1px solid rgba(0,0,0,0.5); */
+    border-radius: 6px 0px 0px 6px;
+    background-color: rgba(237,237,237);
+}
+
+.button {
+    height: 100%;
+    width: 30%;
+    right: 30%;
+    background-color: #00A8C6;
+    border-radius: 0px 7px 7px 0px;
+    border: none;
+    color: white;
+}
+
+
+
+.channel {
+    padding-left: 3px;
+    margin-top: 40px;
+    margin-left: 10px;
+    color: #979797;
+}
+
+.list {
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post {
+    margin: 8px;
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 12px; 
+    display: flex;
+    flex-direction: row;
+    min-width: 300px;
+}
+
+.frame {
+    margin-left: 5px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+
+
+}
+
+.avatar {
+    margin-right: 20px;
+    border-radius: 50%;
+    height: 80px;
+}
+
+.subname {
+    margin-bottom: 10px;
+}
+.prefix {
+    color: #979797;
+}
+
+.title {
+    color: #00a8c6;
+    font-weight: 600;
+}
+
+.scorendate {
+    margin-top: 8px;
+    color: #979797;
+}
+
+.score {
+    padding-right: 7px;
+}
+
+.space {
+    padding-left: 10px;
+    padding-right: 10px;
+}
