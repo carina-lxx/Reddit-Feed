@@ -10,47 +10,24 @@ class App extends Component {
       subscribes: [],
       avatars: {},
     }
-    this.getSubredditPost = this.getSubredditPost.bind(this);
-    this.getAvatars = this.getAvatars.bind(this);
-
+    this.saveAvatars = this.saveAvatars.bind(this);
+    this.savePosts = this.savePosts.bind(this);
+    this.getAllPosts = this.getAllPosts.bind(this);
+    this.getAllAvatars = this.getAllAvatars.bind(this);
   }
 
   componentDidMount() {
-
+    this.getAllAvatars();
+    this.getAllPosts();
   }
 
-  getSubredditPost(subredditTitle) {
-    fetch(`/users/1/posts/${subredditTitle}`)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            const { subscribes } = this.state;
-            if(subscribes.length === 5) {
-              subscribes.splice(0, 1)
-              this.setState({
-                subscribes: [...subscribes, result],
-              })
-            } else {
-              this.setState({
-                subscribes:[...this.state.subscribes, result],
-              });
-            }
-          },
-          (error) => {
-            console.log(error)
-          }
-        )
-  }
-
-  getAvatars(subredditTitle) {
-    fetch(`/avatars/${subredditTitle}`)
+  getAllPosts() {
+    fetch('/users/1/posts')
       .then(res => res.json())
       .then(
-        (result) => {
-          let { avatars } = this.state;
-          avatars[subredditTitle] = result.avatar;
+        (response) => {
           this.setState({
-            avatars: avatars
+            subscribes: response
           })
         },
         (error) => {
@@ -59,18 +36,55 @@ class App extends Component {
       )
   }
 
+  getAllAvatars() {
+    fetch('/users/1/avatars')
+      .then(res => res.json())
+      .then(
+        (response) => {
+          this.setState({
+            avatars: response
+          })
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
+  }
+
+  savePosts(subredditTitle) {
+    fetch(`/users/1/posts/${subredditTitle}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ subredditTitle }),
+    })
+      .then(this.getAllPosts)
+      .catch(console.log);
+  }
+
+  saveAvatars(subredditTitle) {
+    fetch(`/users/1/avatars/${subredditTitle}`, {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ subredditTitle }),
+    })
+      .then(this.getAllAvatars)
+      .catch(console.log);
+  }
+
   render() {
     return (
       <div className='wrapper'>
         <h2 className='header'>Add to my feed:</h2>
-        <Form getSubredditPost={this.getSubredditPost} getAvatars={this.getAvatars} />
+        <Form getSubredditPost={this.getSubredditPost} saveAvatars={this.saveAvatars} savePosts={this.savePosts} />
         <List subscribes={this.state.subscribes} avatars={this.state.avatars} />
       </div>
     )
   }
 
 }
-
-
 
 export default App;

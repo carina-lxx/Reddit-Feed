@@ -20,8 +20,10 @@ class Form extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.getSubredditPost(this.state.redditName);
-        this.props.getAvatars(this.state.redditName)
+        // this.props.getSubredditPost(this.state.redditName);
+        // this.props.getAvatars(this.state.redditName)
+        this.props.savePosts(this.state.redditName)
+        this.props.saveAvatars(this.state.redditName)
     }
 
     render() {
