@@ -1,5 +1,5 @@
 .wrapper {
-    padding: 5% 5%;
+    padding: 50px 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,11 +29,11 @@
     text-align: center;
     border-radius: 6px 0px 0px 6px;
     background-color: #F4F4F4;
+    border-right: 1px solid #dedede;
 }
 
 .inputbox {
     font-size: 13pt;
-    min-width: 300px;
     border-radius: 0px 8px 8px 0px;
     display: flex;
     justify-content: space-between;
@@ -42,19 +42,21 @@
 
 .box {
     height: 50px;
-    width: 245px;
+    width: 280px;
     border: none;
     background-color: #FAFAFA;
+    font-size: 18px;
 }
+
 .button {
-    height: 50px;
-    width: 94px;
+    height: 52px;
+    width: 120px;
     right: 30%;
     background-color: #02b6d6;
     border-radius: 0px 7px 7px 0px;
     border: none;
     color: white;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -63,7 +65,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 570px;
+    width: 620px;
 }
 .channel {
     font-size: 13px;
@@ -71,8 +73,9 @@
     padding-right: 3px;
     padding-bottom: 5px;
     margin-top: 40px;
-    margin-left: 10px;
-    color: #979797;
+    margin-left: 8px;
+    margin-right: 8px;
+    color: #c7c7c7;
     border-bottom: 1px solid #ededed;
 }
 
@@ -134,7 +137,6 @@
 }
 
 .title {
-    margin: 8px;
     color: #02b6d6;;
     font-weight: 600;
     font-size: 16px;
@@ -154,4 +156,5 @@
 .space {
     padding-left: 10px;
     padding-right: 10px;
+    font-size: 15px;
 }

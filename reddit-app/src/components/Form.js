@@ -35,7 +35,7 @@ class Form extends Component {
                         className='box'
                         type='text'
                         name='redditName'
-                        placeholder='AskReddit'
+                        placeholder='  AskReddit'
                         onChange={this.handleChange}
                         value={this.state.redditName} />
                     <button className='button'>SUBSCRIBE</button>
