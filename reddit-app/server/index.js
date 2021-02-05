@@ -10,7 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 let user = {
     id: 1,
-    tweets: []
+    subscribes: [],
+    avatars: {},
 }
 app.get('/', (req, res) => {
     res.send('Hello World!')
@@ -79,8 +80,8 @@ app.get('/users/:id/posts/:title', (req, res) => {
         })
 });
 
-app.get('/avatars/:title', (req, res) => {
-    const {title} = req.params
+app.get('/users/:id/avatars/:title', (req, res) => {
+    const {title, id} = req.params
     axios
         .get(`https://www.reddit.com/r/${title}/about.json`)
         .then(response => {
