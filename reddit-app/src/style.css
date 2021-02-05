@@ -1,0 +1,98 @@
+.wrapper {
+    padding: 5% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5%;
+}
+
+.header {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height:120px;
+    
+}
+
+.inputbox {
+    font-size: 14pt;
+    width: 45%;
+    min-width: 300px;
+    border: 1px solid rgba(0,0,0,1);
+    border-radius: 0px 8px 8px 0px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.box {
+    height: 35px;
+    width: 70%;
+    border: none;
+    background-color: rgba(250,250,250,255);
+}
+
+.label {
+    padding: 8px 0px;
+    font-size: 13pt;
+    font-family: Arial;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 6px 0px 0px 6px;
+    background-color: rgba(244,244,244,255);
+}
+
+.button {
+    height: 100%;
+    width: 30%;
+    right: 30%;
+    background-color: #87ceeb;
+    border-radius: 0px 7px 7px 0px;
+    border: none;
+}
+
+.list {
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post {
+    margin: 8px;
+    padding: 30px;
+    border: 1px solid grey;
+    border-radius: 20px; 
+    display: flex;
+    flex-direction: row;
+    min-width: 300px;
+}
+
+.avatar {
+    margin-right: 20px;
+    border-radius: 50%;
+    height: 80px;
+}
+
+.title {
+    color: #00a8c6;
+    font-weight: 600;
+}
+
+.scorendate {
+    margin-top: 8px;
+    color: #979797;
+}
+
+.score {
+    padding-right: 7px;
+}
+
+.space {
+    padding-left: 10px;
+    padding-right: 10px;
+}

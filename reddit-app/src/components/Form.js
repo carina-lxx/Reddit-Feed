@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Form extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             redditName: '',
         }
 
@@ -24,21 +24,24 @@ class Form extends Component {
         this.props.getAvatars(this.state.redditName)
     }
 
-    render() { 
-        return ( 
-        
-                <form onSubmit={this.handleSubmit}>
-                    <label> r/
-                        <input 
-                        type='text' 
-                        name='redditName' 
+    render() {
+        return (
+
+            <form className='form' onSubmit={this.handleSubmit}>
+                <div className='label'> r/ </div>
+                <div className='inputbox'>
+                    <input 
+                        className='box'                
+                        type='text'
+                        name='redditName'
                         onChange={this.handleChange}
                         value={this.state.redditName} />
-                    </label>
-                    <button>Subscribe</button>
-                </form>
-         );
+          
+                    <button className='button'>Subscribe</button>
+                </div>
+            </form>
+        );
     }
 }
- 
+
 export default Form;
