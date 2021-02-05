@@ -6,7 +6,7 @@ const List = ({ subscribes, avatars }) => {
 
 
     return (
-        <div >
+        <div className='cards'>
             <div className='channel'>{len}/5 Channels</div>
             <ul className='list'>
                 {

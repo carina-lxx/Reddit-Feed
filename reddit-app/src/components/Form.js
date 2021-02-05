@@ -20,7 +20,10 @@ class Form extends Component {
         e.preventDefault();
         this.props.savePosts(this.state.redditName);
         this.props.saveAvatars(this.state.redditName);
-        this.state.redditName = '';
+        this.setState({
+        redditName: ''
+        })
+        
     }
 
     render() {

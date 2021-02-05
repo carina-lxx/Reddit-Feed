@@ -4,11 +4,14 @@
     flex-direction: column;
     justify-content: center;
     margin: 5%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .header {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    color: #323232;
+    font-size: 24px;
 }
 
 .form {
@@ -16,12 +19,20 @@
     flex-direction: row;
     justify-content: center;
     max-height:120px;
-    
+}
+.label {
+    height: 36px;
+    padding-top: 15px;
+    padding-bottom: 1px;
+    width: 40px;
+    font-size: 15pt;
+    text-align: center;
+    border-radius: 6px 0px 0px 6px;
+    background-color: #F4F4F4;
 }
 
 .inputbox {
     font-size: 13pt;
-    width: 45%;
     min-width: 300px;
     border-radius: 0px 8px 8px 0px;
     display: flex;
@@ -30,57 +41,70 @@
 }
 
 .box {
-    height: 38px;
-    width: 70%;
+    height: 50px;
+    width: 245px;
     border: none;
-    background-color: rgba(245,245,245);
+    background-color: #FAFAFA;
 }
-
-.label {
-    padding: 8px 0px;
-    width: 24px;
-    font-size: 15pt;
-    text-align: center;
-    font-family: Arial;
-    /* border: 1px solid rgba(0,0,0,0.5); */
-    border-radius: 6px 0px 0px 6px;
-    background-color: rgba(237,237,237);
-}
-
 .button {
-    height: 100%;
-    width: 30%;
+    height: 50px;
+    width: 94px;
     right: 30%;
-    background-color: #00A8C6;
+    background-color: #02b6d6;
     border-radius: 0px 7px 7px 0px;
     border: none;
     color: white;
+    font-size: 12px;
+    font-weight: bold;
 }
 
-
-
+.cards {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 570px;
+}
 .channel {
+    font-size: 13px;
     padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 5px;
     margin-top: 40px;
     margin-left: 10px;
     color: #979797;
+    border-bottom: 1px solid #ededed;
 }
 
 .list {
-    padding: 3px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0px;
 }
 
 .post {
     margin: 8px;
-    padding: 20px;
     border: 1px solid grey;
     border-radius: 12px; 
     display: flex;
+    flex-direction: column;
+}
+
+.top {
+    margin: 2px 5px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-left: 95%;
+    color: #02b6d6;
+}
+
+.down {
+    margin: 1px 15px;
+    padding-bottom: 20px;
+    border-radius: 12px; 
+    display: flex;
     flex-direction: row;
-    min-width: 300px;
 }
 
 .frame {
@@ -88,8 +112,10 @@
     display: block;
     margin-top: auto;
     margin-bottom: auto;
+}
 
-
+.content {
+    margin-left: 20px;
 }
 
 .avatar {
@@ -100,19 +126,25 @@
 
 .subname {
     margin-bottom: 10px;
+    color: #2d2d2d;
+    font-weight: 350;
 }
 .prefix {
     color: #979797;
 }
 
 .title {
-    color: #00a8c6;
+    margin: 8px;
+    color: #02b6d6;;
     font-weight: 600;
+    font-size: 16px;
 }
 
 .scorendate {
     margin-top: 8px;
     color: #979797;
+    vertical-align: bottom;
+    font-size: 12px;
 }
 
 .score {

@@ -34,7 +34,7 @@ app.post('/users/:id/posts/:title', (req, res) => {
             var seconds = created;
             let timeStamp = new Date(0);
             timeStamp.setSeconds(seconds);
-
+            // response format is Wed Feb 03 2021 15:24:43 GMT-0800 (Pacific Standard Time)
             const months = [
                 'Jan',
                 'Feb',
@@ -49,20 +49,21 @@ app.post('/users/:id/posts/:title', (req, res) => {
                 'Nov',
                 'Dec'
             ];
-
+            // reformat timestamp
             const year = timeStamp.getFullYear();
             let month = timeStamp.getMonth();
             month = months[month];
             const day = timeStamp.getDate();
             let hour = timeStamp.getHours();
             let timeOfDay = 'AM';
-
-            if (hour[0] === 0) {
-                hour = hour.slice(1);
+            if (((hour).toString())[0] === '0') {
+                hour = parseInt((hour).toString().slice(1));
             }
-            if (hour > 11) {
+            if (hour >= 12 && hour !== 24) {
                 timeOfDay = 'PM';
-                hour = (hour - 12);
+            }
+            if(hour > 12) {
+                hour = hour - 12;
             }
             const min = timeStamp.getMinutes();
             let minutes = min.toString();
