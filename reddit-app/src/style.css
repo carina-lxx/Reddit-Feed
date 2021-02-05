@@ -20,10 +20,9 @@
 }
 
 .inputbox {
-    font-size: 14pt;
+    font-size: 13pt;
     width: 45%;
     min-width: 300px;
-    border: 1px solid rgba(0,0,0,1);
     border-radius: 0px 8px 8px 0px;
     display: flex;
     justify-content: space-between;
@@ -31,28 +30,40 @@
 }
 
 .box {
-    height: 35px;
+    height: 38px;
     width: 70%;
     border: none;
-    background-color: rgba(250,250,250,255);
+    background-color: rgba(245,245,245);
 }
 
 .label {
     padding: 8px 0px;
-    font-size: 13pt;
+    width: 24px;
+    font-size: 15pt;
+    text-align: center;
     font-family: Arial;
-    border: 1px solid rgba(0,0,0,0.5);
+    /* border: 1px solid rgba(0,0,0,0.5); */
     border-radius: 6px 0px 0px 6px;
-    background-color: rgba(244,244,244,255);
+    background-color: rgba(237,237,237);
 }
 
 .button {
     height: 100%;
     width: 30%;
     right: 30%;
-    background-color: #87ceeb;
+    background-color: #00A8C6;
     border-radius: 0px 7px 7px 0px;
     border: none;
+    color: white;
+}
+
+
+
+.channel {
+    padding-left: 3px;
+    margin-top: 40px;
+    margin-left: 10px;
+    color: #979797;
 }
 
 .list {
@@ -64,18 +75,34 @@
 
 .post {
     margin: 8px;
-    padding: 30px;
+    padding: 20px;
     border: 1px solid grey;
-    border-radius: 20px; 
+    border-radius: 12px; 
     display: flex;
     flex-direction: row;
     min-width: 300px;
+}
+
+.frame {
+    margin-left: 5px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+
+
 }
 
 .avatar {
     margin-right: 20px;
     border-radius: 50%;
     height: 80px;
+}
+
+.subname {
+    margin-bottom: 10px;
+}
+.prefix {
+    color: #979797;
 }
 
 .title {

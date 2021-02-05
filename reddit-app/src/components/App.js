@@ -10,10 +10,10 @@ class App extends Component {
       subscribes: [],
       avatars: {},
     }
-    this.saveAvatars = this.saveAvatars.bind(this);
-    this.savePosts = this.savePosts.bind(this);
     this.getAllPosts = this.getAllPosts.bind(this);
     this.getAllAvatars = this.getAllAvatars.bind(this);
+    this.savePosts = this.savePosts.bind(this);
+    this.saveAvatars = this.saveAvatars.bind(this);
   }
 
   componentDidMount() {
@@ -65,7 +65,7 @@ class App extends Component {
 
   saveAvatars(subredditTitle) {
     fetch(`/users/1/avatars/${subredditTitle}`, {
-      method: 'POST', // or 'PUT'
+      method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
       },
@@ -84,7 +84,6 @@ class App extends Component {
       </div>
     )
   }
-
 }
 
 export default App;

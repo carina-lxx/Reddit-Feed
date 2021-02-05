@@ -6,11 +6,9 @@ class Form extends Component {
         this.state = {
             redditName: '',
         }
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
 
     handleChange(e) {
         this.setState({
@@ -20,26 +18,23 @@ class Form extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // this.props.getSubredditPost(this.state.redditName);
-        // this.props.getAvatars(this.state.redditName)
         this.props.savePosts(this.state.redditName)
         this.props.saveAvatars(this.state.redditName)
     }
 
     render() {
         return (
-
             <form className='form' onSubmit={this.handleSubmit}>
                 <div className='label'> r/ </div>
                 <div className='inputbox'>
-                    <input 
-                        className='box'                
+                    <input
+                        className='box'
                         type='text'
                         name='redditName'
+                        placeholder='AskReddit'
                         onChange={this.handleChange}
                         value={this.state.redditName} />
-          
-                    <button className='button'>Subscribe</button>
+                    <button className='button'>SUBSCRIBE</button>
                 </div>
             </form>
         );
