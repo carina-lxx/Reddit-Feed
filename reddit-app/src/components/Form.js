@@ -1,34 +1,61 @@
-import React, { Component } from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import List from './List';
 
-class Form extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            redditName: '',
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+const Form = () => {
+    const [redditName, setRedditName] = useState('');
+    const [subscribes, setSubscribes] = useState([]);
+    const [avatars, setAvatars] = useState({});
+
+    const getAllPosts = async () => {
+        const { data } = await axios.get('users/1/posts');
+        setSubscribes(data);
+    };
+    const getAllAvatars = async () => {
+        const { data } = await axios.get('/users/1/avatars');
+        setAvatars(data);
     }
 
-    handleChange(e) {
-        this.setState({
-            redditName: e.target.value,
-        });
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.savePosts(this.state.redditName);
-        this.props.saveAvatars(this.state.redditName);
-        this.setState({
-        redditName: ''
+    const savePosts = async () => {
+        fetch(`/users/1/posts/${redditName}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ redditName }),
         })
-        
+            .then(getAllPosts)
+            .catch(console.log);
+    }
+    const saveAvatars = async () => {
+        fetch(`/users/1/avatars/${redditName}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ redditName }),
+        })
+            .then(getAllAvatars)
+            .catch(console.log);
     }
 
-    render() {
-        return (
-            <form className='form' onSubmit={this.handleSubmit}>
+    useEffect(() => {
+        getAllPosts();
+    }, []);
+    useEffect(() => {
+        getAllAvatars();
+
+    }, [])
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        savePosts();
+        saveAvatars();
+    }
+
+    return (
+        <div>
+            <form className='form' onSubmit={handleSubmit}>
                 <div className='label'> r/ </div>
                 <div className='inputbox'>
                     <input
@@ -36,13 +63,14 @@ class Form extends Component {
                         type='text'
                         name='redditName'
                         placeholder='  AskReddit'
-                        onChange={this.handleChange}
-                        value={this.state.redditName} />
+                        onChange={e => setRedditName(e.target.value)}
+                        value={redditName} />
                     <button className='button'>SUBSCRIBE</button>
                 </div>
             </form>
-        );
-    }
+            <List subscribes={subscribes} avatars={avatars} />
+        </div>
+    );
 }
 
 export default Form;

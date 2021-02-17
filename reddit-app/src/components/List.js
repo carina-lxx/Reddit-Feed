@@ -3,7 +3,7 @@ import Post from './Post';
 
 const List = ({ subscribes, avatars }) => {
     const len = subscribes.length;
-
+   
 
     return (
         <div className='cards'>

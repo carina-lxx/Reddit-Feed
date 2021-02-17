@@ -22,6 +22,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Demo
 
-![Demo] (https://raw.githubusercontent.com/carina-lxx/Reddit-Feed/master/demo.png "App Demo")
 
-![Demo] (demo.png)
+![demo](https://raw.githubusercontent.com/carina-lxx/Reddit-Feed/master/demo.png "demo")
